@@ -7,7 +7,7 @@ const cart = document.querySelector(".cart")
 
 const def = document.querySelector('#def');
 
-
+let val = 0;
 function randomColorGen(){
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
@@ -70,6 +70,7 @@ addBtn.addEventListener('click',()=>{
     
     
     product.appendChild(div);
+    val ++;
     if(product.innerText !==""){
         def.style.display = "none"
     }
@@ -105,13 +106,20 @@ addBtn.addEventListener('click',()=>{
             p2.innerText = Number(p2.innerText) - 1;
             updateValue('sub', span1)
             total.innerText = Number(total.innerText) -  Number(p.innerText);
+
+            
             
             
         }
         else {
             div.style.display = "none";
             updateValue('none', cartDiv);
+            val--;
             total.innerText = Number(total.innerText) -  Number(p.innerText);
+
+            if(val === 0){
+                def.style.display = "flex"
+            }
         }
     })
     
