@@ -5,6 +5,9 @@ const inputNum = document.querySelector("#inputNum")
 const product = document.querySelector(".product")
 const cart = document.querySelector(".cart")
 
+const def = document.querySelector('#def');
+
+
 function randomColorGen(){
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
@@ -22,6 +25,7 @@ function updateValue(ele, item) {
     }
     else {
         item.style.display= "none"
+        
     }
 }
 addBtn.addEventListener('click',()=>{
@@ -63,8 +67,10 @@ addBtn.addEventListener('click',()=>{
     p3.innerText = "+";
     div2.appendChild(p3);
     div.appendChild(div2);
-    div.style.backgroundColor = randomColorGen();
-    // div.style.color = randomColorGen();
+    
+    if(product.innerText !==""){
+        def.style.display = "none"
+    }
     product.appendChild(div);
     
     
@@ -99,6 +105,8 @@ addBtn.addEventListener('click',()=>{
             p2.innerText = Number(p2.innerText) - 1;
             updateValue('sub', span1)
             total.innerText = Number(total.innerText) -  Number(p.innerText);
+            
+            
         }
         else {
             div.style.display = "none";
