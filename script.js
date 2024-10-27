@@ -68,11 +68,11 @@ addBtn.addEventListener('click',()=>{
     div2.appendChild(p3);
     div.appendChild(div2);
     
+    
+    product.appendChild(div);
     if(product.innerText !==""){
         def.style.display = "none"
     }
-    product.appendChild(div);
-    
     
 
     let cartDiv = document.createElement('div')
